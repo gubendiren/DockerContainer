@@ -35,7 +35,12 @@ namespace WeatherForecastApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(x => x
+                .SetIsOriginAllowed(origin => true)
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+                
             app.UseHttpsRedirection();
 
             app.UseRouting();
