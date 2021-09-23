@@ -1,20 +1,19 @@
 version: "3.4"
 
 services:
-  weather_forecast_api:
-    image: ${DOCKER_REGISTRY-}weather_forecast_api
-    build:
-      context: .
-      dockerfile: WeatherForecastApi/Dockerfile
-    ports:
-      - "8001:80"
-
   weather_forecast_web:
     image: ${DOCKER_REGISTRY-}weather_forecast_web
     build:
-      context: .
-      dockerfile: weather_forecast_web/Dockerfile
+      context: ./weather_forecast_web
+      dockerfile: Dockerfile
     ports:
-      - "8000:80"
+      - "8001:80"
     depends_on:
       - weather_forecast_api
+  weather_forecast_api:
+    image: ${DOCKER_REGISTRY-}weather_forecast_api
+    build:
+      context: ./WeatherForecastApi
+      dockerfile: Dockerfile
+    ports:
+      - "8002:80"
