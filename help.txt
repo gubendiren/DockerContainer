@@ -1,1 +1,79 @@
-Docker container sample application
+Buid and Run application:
+
+- To Run weather_forecast_web:
+
+  Go to weather_forecast_web folder, run following commends:
+  
+  npx install 
+  yarn start
+
+- Buid and run the weather_forecast_web application docker:
+
+  Go to weather_forecast_web folder and then run the following commends
+  
+  Build docker: 
+    docker build -t weather_forecast_web .
+  
+  List the docker image: 
+    docker image ls
+  
+  Run the docker image: 
+    docker run -dp 8001:80 --name weather_forecast_web weather_forecast_web
+    
+  List containers:
+    docker ps
+  
+  Tag docker image: 
+    docker tag weather_forecast_web <your name>/weather_forecast_web:latest
+  
+  Push docker image: 
+    docker image push <your name>/weather_forecast_web:latest
+
+- Buid and run the weather_forecast_api application docker:
+
+  Go to weather_forecast_api folder and then run the following commends
+  
+  Build docker: 
+    docker build -t weather_forecast_api .
+  
+  List the docker image: 
+    docker image ls
+  
+  Run the docker image: 
+    docker run -dp 8002:80 --name weather_forecast_api weather_forecast_api
+  
+  Tag docker image: 
+    docker tag weather_forecast_api <your name>/weather_forecast_api:latest
+  
+  Push docker image: 
+    docker image push <your name>/weather_forecast_api:latest
+ 
+ - Pull the docker from docker hub and run:
+  
+  Pull the docker image:
+    docker image pull <your name>/weather_forecast_api:latest
+  
+  Run the docker:
+    docker run -dp 8003:80 --name weather_forecast_web weather_forecast_web
+  
+- Stop and Remove the container:
+    docker stop weather_forecast_web weather_forecast_api
+    docker rm weather_forecast_web weather_forecast_api
+ 
+- Remove the images:
+    docker image rm weather_forecast_api weather_forecast_web
+  
+- Run the weather_forecast_web and weather_forecast_api using docker compose:
+
+  Buid using docker compose:
+    docker-compose build
+  
+  Run using using docker compose:
+    docker-compose up
+  
+
+  
+  
+
+  
+
