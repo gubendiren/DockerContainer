@@ -29,7 +29,7 @@ Build and Run application:
   Push docker image: 
     docker image push <your name>/weather_forecast_web:latest
     
-- To Run weather_forecast_web:
+- To Run weather_forecast_api:
 
   Go to weather_forecast_api folder and then run the following commends
 
