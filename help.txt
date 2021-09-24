@@ -33,6 +33,8 @@ Build and Run application:
 
   Go to weather_forecast_api folder and then run the following commends
   
+  dotnet run
+  
   Build docker: 
     docker build -t weather_forecast_api .
   
