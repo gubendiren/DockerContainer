@@ -1,13 +1,13 @@
-Buid and Run application:
+Build and Run application:
 
 - To Run weather_forecast_web:
 
   Go to weather_forecast_web folder, run following commends:
   
-  npx install 
+  yarn install 
   yarn start
 
-- Buid and run the weather_forecast_web application docker:
+- Build and run the weather_forecast_web application docker:
 
   Go to weather_forecast_web folder and then run the following commends
   
@@ -29,7 +29,7 @@ Buid and Run application:
   Push docker image: 
     docker image push <your name>/weather_forecast_web:latest
 
-- Buid and run the weather_forecast_api application docker:
+- Build and run the weather_forecast_api application docker:
 
   Go to weather_forecast_api folder and then run the following commends
   
@@ -65,7 +65,7 @@ Buid and Run application:
   
 - Run the weather_forecast_web and weather_forecast_api using docker compose:
 
-  Buid using docker compose:
+  Build using docker compose:
     docker-compose build
   
   Run using using docker compose:
