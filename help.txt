@@ -28,12 +28,16 @@ Build and Run application:
   
   Push docker image: 
     docker image push <your name>/weather_forecast_web:latest
+    
+- To Run weather_forecast_web:
+
+  Go to weather_forecast_api folder and then run the following commends
+
+  dotnet run
 
 - Build and run the weather_forecast_api application docker:
 
   Go to weather_forecast_api folder and then run the following commends
-  
-  dotnet run
   
   Build docker: 
     docker build -t weather_forecast_api .
