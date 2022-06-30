@@ -1,20 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: weather_forecast_web_deployment
-  labels:
-    app: weather_forecast_web
+  name: weather-forecast-api-deployment
 spec:
   replicas: 3
   selector:
-    matchLabels: app:weather_forecast_web
+    matchLabels:
+      app: weather-forecast-api
   template:
     metadata:
       labels:
-        app: weather-forcast-web
+        app: weather-forecast-api
     spec:
       containers:
-        - name: weather_forecast_web
-          image: gubendiren/weather_forecast_web:tagname
+        - name: weather-forecast-api
+          image: gubendiren/weather_forecast_api:latest
           ports:
             - containerPort: 80
+      imagePullSecrets:
+        - name: regcred

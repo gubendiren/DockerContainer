@@ -8,7 +8,7 @@ export default class app extends React.Component {
   };
 
   componentDidMount() {
-    axios.get(`http://localhost:8002/weatherforecast`).then((res) => {
+    axios.get(`http://20.193.5.147/WeatherForecast`).then((res) => {
       const weatherForecastData = res.data;
       this.setState({ weatherForecastData });
     });
