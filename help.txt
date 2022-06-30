@@ -1,4 +1,6 @@
-Build and Run application:
+******************************************
+Build and Run application using docker
+******************************************
 
 - To Run weather_forecast_web:
 
@@ -24,10 +26,10 @@ Build and Run application:
     docker ps
   
   Tag docker image: 
-    docker tag weather_forecast_web <your name>/weather_forecast_web:latest
+    docker tag weather_forecast_web <your name>/weather_forecast_web:1.0
   
   Push docker image: 
-    docker image push <your name>/weather_forecast_web:latest
+    docker image push <your name>/weather_forecast_web:1.0
     
 - To Run weather_forecast_api:
 
@@ -49,15 +51,15 @@ Build and Run application:
     docker run -dp 8002:80 --name weather_forecast_api weather_forecast_api
   
   Tag docker image: 
-    docker tag weather_forecast_api <your name>/weather_forecast_api:latest
+    docker tag weather_forecast_api <your name>/weather_forecast_api:1.0
   
   Push docker image: 
-    docker image push <your name>/weather_forecast_api:latest
+    docker image push <your name>/weather_forecast_api:1.0
  
  - Pull the docker from docker hub and run:
   
   Pull the docker image:
-    docker image pull <your name>/weather_forecast_api:latest
+    docker image pull <your name>/weather_forecast_api:1.0
   
   Run the docker:
     docker run -dp 8003:80 --name weather_forecast_web weather_forecast_web
@@ -76,10 +78,43 @@ Build and Run application:
   
   Run using using docker compose:
     docker-compose up
-  
 
-  
-  
+*************************************************
+Deploy Using Kubernetes
+*************************************************
 
-  
+- Install Azure cli: 
+  https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
 
+- Install kubectl
+  RUN az aks install-cli
+
+- Add kubectl to environment path
+  C:\Users\<Your Window User>\.azure-kubectl
+  
+- Check kubectl is setup
+  RUN kubectl version --client
+
+- Create Azure AKS resource
+  https://docs.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli#create-an-aks-cluster
+
+- Create Image pull secret
+  kubectl create secret docker-registry regcred --docker-server='https://index.docker.io/v1/' --docker-username=<Your docker hub user name> --docker-password=<password> --docker-email=<email>
+
+- Deploy weather_forcast_api
+  Go to Deployment/weather_forcast_api
+  RUN kubectl apply -f deplyment.yaml
+  RUN kubectl apply -f service.yaml
+
+- Check Pod
+  RUN kubectl get pod --watch
+
+- Check Service
+  kubectl get service --watch
+
+- Check API
+  http://<external ip>/WeatherForecast
+
+kubectl Cheat sheet:
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/

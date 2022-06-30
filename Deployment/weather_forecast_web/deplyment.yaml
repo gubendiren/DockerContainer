@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: weather-forecast-web
-          image: gubendiren/weather_forecast_web:latest
+          image: gubendiren/weather_forecast_web:1.1
           ports:
             - containerPort: 80
       imagePullSecrets:
