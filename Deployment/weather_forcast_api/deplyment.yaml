@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: weather-forecast-api
-          image: gubendiren/weather_forecast_api:latest
+          image: gubendiren/weather_forecast_api:1.0
           ports:
             - containerPort: 80
       imagePullSecrets:
