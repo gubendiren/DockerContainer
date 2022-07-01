@@ -1,6 +1,9 @@
 ******************************************
 Build and Run application using docker
 ******************************************
+- Setup docker engine
+  Since the docker desktop requires a license and If you need to use the docker commands, Please install the docker engine in the Ubuntu VM. 
+  https://docs.docker.com/engine/install/ubuntu/
 
 - To Run weather_forecast_web:
 
